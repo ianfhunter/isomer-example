@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/isomer/dist/isomer.min.js"></script>
+<script>
+$(function(){
+var iso = new Isomer(document.getElementById("art"));
+var Shape = Isomer.Shape;
+var Point = Isomer.Point;
+var Color = Isomer.Color;
+var red = new Color(160, 60, 50);
+var blue = new Color(50, 60, 160);
+
+iso.add(Shape.Prism(Point.ORIGIN, 3, 3, 1));
+iso.add(Shape.Pyramid(Point(0, 2, 1)), red);
+iso.add(Shape.Prism(Point(2, 0, 1)), blue);
+});
+</script>
+</head>
+
+<body>
+<canvas width="800" height="600" id="art"></canvas>
+</body>
+</html>

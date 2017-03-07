@@ -1,0 +1,20 @@
+{
+  "name": "RPG",
+  "authors": [
+    "Ian Hunter <ian.hunter@movidius.com>"
+  ],
+  "description": "isomer view of rpg",
+  "main": "index.html",
+  "keywords": [
+    "rpg"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
