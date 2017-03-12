@@ -1,24 +1,24 @@
 <html>
 <head>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/isomer/dist/isomer.min.js"></script>
-<script>
-$(function(){
-var iso = new Isomer(document.getElementById("art"));
-var Shape = Isomer.Shape;
-var Point = Isomer.Point;
-var Color = Isomer.Color;
-var red = new Color(160, 60, 50);
-var blue = new Color(50, 60, 160);
+<script src="bower_components/isomer/dist/isomer.js"></script>
+<script src="colors.js"></script>
+<script src="enums.js"></script>
+<script src="loadgrid.js"></script>
+<script src="grid.js"></script>
+<script src="player.js"></script>
+<script src="init.js"></script>
+<style type="text/css">
+    #art {
+      width: 800px;
+      height: 600px;
+    }
+</style>
 
-iso.add(Shape.Prism(Point.ORIGIN, 3, 3, 1));
-iso.add(Shape.Pyramid(Point(0, 2, 1)), red);
-iso.add(Shape.Prism(Point(2, 0, 1)), blue);
-});
-</script>
 </head>
 
 <body>
-<canvas width="800" height="600" id="art"></canvas>
+<img src="data/directions.gif" height=40 style="display: block;" />
+<canvas width="1600" height="1200" id="art"></canvas>
 </body>
 </html>
