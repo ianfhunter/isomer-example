@@ -14,6 +14,7 @@ function move_player(grid){
                     grid[coord.x - 1 ][ coord.y] = Tile.PLAYER;
                     play_frame(grid);
                 }else{
+                    interact(coord.x - 1 , coord.y, grid)
                     console.log("blocked.")
                 }
                 break;
@@ -25,6 +26,7 @@ function move_player(grid){
                     grid[coord.x + 1 ][ coord.y] = Tile.PLAYER;
                     play_frame(grid);
                 }else{
+                    interact(coord.x + 1 , coord.y, grid)
                     console.log("blocked.")
                 }
                 break;
@@ -36,6 +38,7 @@ function move_player(grid){
                     grid[coord.x ][ coord.y - 1] = Tile.PLAYER;
                     play_frame(grid);
                 }else{
+                    interact(coord.x, coord.y - 1, grid)
                     console.log("blocked.")
                 }
                 break;
@@ -47,6 +50,7 @@ function move_player(grid){
                     grid[coord.x ][ coord.y + 1] = Tile.PLAYER;
                     play_frame(grid);
                 }else{
+                    interact(coord.x , coord.y + 1, grid)
                     console.log("blocked.")
                 }
                 break;
@@ -64,5 +68,25 @@ function can_move(x,y, grid){
     }
     else{
         return false
+    }
+}
+
+function interact(x,y, grid) {
+    switch(grid[x][y]){
+        case Tile.EMPTY:
+            console.log("?");
+            break;
+        case Tile.WALL:
+        case Tile.WALLALT:
+        case Tile.WALLCORNER:
+            console.log("Blocked");
+            break;
+        case Tile.ANVIL:
+            console.log("SMITH")
+            $("#smithTrigger").click();
+
+        default:
+            console.log("No action yet.")
+
     }
 }

@@ -5,6 +5,10 @@ var Point;
 var Path;
 
 $(function(){
+
+    // Modal Windows
+        $("#smithTrigger").animatedModal();
+    // Isomer
     canvas = document.getElementById("art");
     options = {
         originY: canvas.height /2

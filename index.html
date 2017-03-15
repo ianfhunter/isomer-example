@@ -1,5 +1,7 @@
 <html>
 <head>
+
+<!-- JS -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/isomer/dist/isomer.js"></script>
 <script src="colors.js"></script>
@@ -8,17 +10,126 @@
 <script src="grid.js"></script>
 <script src="player.js"></script>
 <script src="init.js"></script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+
+
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <style type="text/css">
     #art {
       width: 800px;
       height: 600px;
     }
+    #smithTrigger{
+        visibility: hidden;
+    }
+    .modal-table td, .modal-table tr th, .modal-table th{
+        padding: 20;
+        text-align: center;
+    }
+    .modal-table{
+        max-width: 80%;
+    }
+    .imageborder
+    {
+        border:1px solid #000000
+    }
 </style>
-
 </head>
 
 <body>
-<img src="data/directions.gif" height=40 style="display: block;" />
-<canvas width="1600" height="1200" id="art"></canvas>
+    <audio controls autoplay loop>
+      <source src="beepbox-8.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+    <img src="data/directions.gif" height=40 style="display: block;" />
+    <canvas width="1600" height="1200" id="art"></canvas>
+
+
+    <a id="smithTrigger" href="#animatedModal">DEMO01</a>
+
+    <div id="animatedModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+
+        <div class="close-animatedModal"> 
+            CLOSE MODAL
+            <button type="button" class="close close-animatedModal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            
+        <div class="modal-content" style="text-align: center;">
+                  <!--Your modal content goes here-->
+            <h1 class="modal-title">Smith</h1>
+            <h4 class="modal-subtitle"><i>Sparks flitter as the hammer pounds on the steel anvil...</i></h4>
+            
+
+            <img src="Icon_steel_bar.png" class="imageborder" />
+            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(180deg); filter: hue-rotate(180deg);" />
+            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(50deg); filter: hue-rotate(50deg);" />
+            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(240deg); filter: hue-rotate(240deg);" />
+            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(100deg); filter: hue-rotate(100deg);" />
+
+            <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;"> <!--  style="width:100%"> -->
+              <tr>
+                <th>Item</th>
+                <th>Damage</th>
+                <th>Reach</th>
+                <th>Craft</th>
+              </tr>
+              <tr>
+                <td>Sword</td>
+                <td>1</td> 
+                <td>1</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Scimitar</td>
+                <td>1.2</td> 
+                <td>0.8</td> 
+                <td><button>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Pike</td>
+                <td>1.2</td> 
+                <td>1.4</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Halbeard</td>
+                <td>1.8</td> 
+                <td>2</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Trident</td>
+                <td>1.3</td> 
+                <td>0.6</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Dagger</td>
+                <td>3</td> 
+                <td>0.2</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+            </table>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="animatedModal.min.js"></script>
 </body>
 </html>
