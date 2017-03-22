@@ -14,6 +14,8 @@ function mine(a){
     console.log(progress);
     mining_material = name
 
+    clearInterval(mining_timeout);
+
     do_mine(name, progress)
 
 
@@ -27,7 +29,7 @@ function do_mine(name, progress) {
 
         console.log(able_to_mine)
         if (able_to_mine == false){
-            clearInterval(timer);
+            clearInterval(mining_timeout);
         }
 
         new_pc = parseInt($(progress).text())+10;
@@ -37,6 +39,7 @@ function do_mine(name, progress) {
             $(progress).text(new_pc+ "%")
         }else{
             //Get Item.
+            console.log("ITEM!")
             new_pc = new_pc - 100;
             $(progress).attr("aria-valuenow",new_pc)
             $(progress).css("width",new_pc+ "%")   // Use Text as the css is returned in px.
