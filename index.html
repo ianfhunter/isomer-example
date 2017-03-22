@@ -6,8 +6,13 @@
 <script src="bower_components/isomer/dist/isomer.js"></script>
 <script src="colors.js"></script>
 <script src="enums.js"></script>
+<script src="shape.js"></script>
+<script src="rooms.js"></script>
+<script src="util.js"></script>
 <script src="loadgrid.js"></script>
 <script src="grid.js"></script>
+<script src="tile.js"></script>
+<script src="mine.js"></script>
 <script src="player.js"></script>
 <script src="init.js"></script>
 
@@ -28,26 +33,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<style type="text/css">
-    #art {
-      width: 800px;
-      height: 600px;
-    }
-    #smithTrigger{
-        visibility: hidden;
-    }
-    .modal-table td, .modal-table tr th, .modal-table th{
-        padding: 20;
-        text-align: center;
-    }
-    .modal-table{
-        max-width: 80%;
-    }
-    .imageborder
-    {
-        border:1px solid #000000
-    }
-</style>
+<link rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -60,10 +46,87 @@
     <canvas width="1600" height="1200" id="art"></canvas>
 
 
-    <a id="smithTrigger" href="#animatedModal">DEMO01</a>
+<!-- Smithing -->
+    <a id="smithTrigger" class="label" href="#animatedModal">DEMO01</a>
+    <a id="mineTrigger" class="label" href="#mineModal">DEMO02</a>
+
+    <div id="mineModal">
+
+        <div class="close-mineModal" onclick="able_to_mine=false; clearTimeout(mining_timeout)"> 
+            CLOSE MODAL
+            <button type="button" class="close close-mineModal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            
+        <div class="modal-content" style="text-align: center;">
+            <h1 class="modal-title">Mine</h1>
+            <h4 class="modal-subtitle"><i>Dust fills the air as the rock is slowly chipped away...</i></h4>
+
+            <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(180deg); filter: hue-rotate(180deg);" class="imageborder" />
+            <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(50deg); filter: hue-rotate(50deg);" />
+            <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(240deg); filter: hue-rotate(240deg);"  />
+            <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(100deg); filter: hue-rotate(100deg);" />
+
+             <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;">
+              <tr>
+                <th>Ore</th>
+                <th>Progress</th>
+                <th>Select</th>
+              </tr>
+              <tr>
+                <td>Copper</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar"
+                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        0%
+                      </div>
+                    </div>
+                </td> 
+                <td><button onclick=mine(this)>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Tin</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar"
+                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        20%
+                      </div>
+                    </div>
+                </td> 
+                <td><button>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Iron</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar"
+                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        20%
+                      </div>
+                    </div>
+                </td> 
+                <td><button>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Coal</td>
+                <td>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar"
+                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        20%
+                      </div>
+                    </div>
+                </td> 
+                <td><button>Go!</button></td>
+              </tr>
+            </table> 
+        </div>
+    </div>
+
+
 
     <div id="animatedModal">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 
         <div class="close-animatedModal"> 
             CLOSE MODAL
@@ -71,7 +134,6 @@
         </div>
             
         <div class="modal-content" style="text-align: center;">
-                  <!--Your modal content goes here-->
             <h1 class="modal-title">Smith</h1>
             <h4 class="modal-subtitle"><i>Sparks flitter as the hammer pounds on the steel anvil...</i></h4>
             
@@ -126,9 +188,10 @@
                 <td><button disabled>Go!</button></td>
               </tr>
             </table>
-
         </div>
     </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="animatedModal.min.js"></script>
 </body>

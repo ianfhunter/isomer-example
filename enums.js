@@ -1,8 +1,8 @@
-var Tile;
+var TileEnum;
 
 
 function init_enums(){
-    Tile = {
+    TileEnum = {
         INVISIBLE: -1,
         EMPTY : 0,
 

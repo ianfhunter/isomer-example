@@ -3,11 +3,15 @@ var Color;
 var Shape;
 var Point;
 var Path;
+var Debug_Enable = false;
 
 $(function(){
 
     // Modal Windows
-        $("#smithTrigger").animatedModal();
+    $("#mineTrigger").animatedModal({
+        modalTarget:'mineModal'
+    });
+    $("#smithTrigger").animatedModal();
     // Isomer
     canvas = document.getElementById("art");
     options = {
@@ -22,15 +26,9 @@ $(function(){
 
     init_colors();
     init_enums();
+    init_rooms();
+    grid = get_starting_grid();
 
-    grid = [
-        [Tile.WALLCORNER,  Tile.WALLALT,   Tile.DOORALT,    Tile.WALLALT,   Tile.WALLALT,   Tile.WALLALT,   Tile.WALLALT],
-        [Tile.WALL,        0,              0,               0,              0,              0,              0],
-        [Tile.WALL,        0,              0,               Tile.PLAYER,    0,              0,              Tile.BOULDER],
-        [Tile.WALL,        Tile.FIREPLACE, 0,               0,              0,              0,              Tile.ANVIL],
-        [Tile.DOOR,        0,              0,               0,              0,              0,              Tile.BOULDER],
-        [Tile.WALL,        0,              0,               Tile.BOULDER,   0,              0,              0]
-    ]  
 
     play_frame(grid);
 });

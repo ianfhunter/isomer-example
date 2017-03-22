@@ -16,4 +16,6 @@ function init_colors(){
     white = new Color(255,255, 255);
     DEBUG = new Color(178, 48, 145);
     lgrey = new Color(96, 96, 96)
+    yellow = new Color(255, 195, 0);
+    orange = new Color(209, 41, 0)
 }

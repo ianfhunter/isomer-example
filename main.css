@@ -1,0 +1,18 @@
+    #art {
+      width: 800px;
+      height: 600px;
+    }
+    .label{
+        visibility: hidden;
+    }
+    .modal-table td, .modal-table tr th, .modal-table th{
+        padding: 20;
+        text-align: center;
+    }
+    .modal-table{
+        max-width: 80%;
+    }
+    .imageborder
+    {
+        border:1px solid #000000
+    }
