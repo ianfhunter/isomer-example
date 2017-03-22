@@ -24,11 +24,10 @@ function display_grid(grid){
       -1X   -1Y
     */
 
-    console.log("ey.")
     for(i = 0; i != grid.length; i++){
         for(z = 0; z != grid[0].length; z++){
 
-            console.log("Indexing...",  grid[i][z].tile)
+            // console.log("Indexing...",  grid[i][z].tile)
             switch( grid[i][z].tile ){
                 case TileEnum.INVISIBLE:
                     if(Debug_Enable)
@@ -76,7 +75,7 @@ function display_grid(grid){
                     iso.add(Shape.Prism(Point(-i, -z, 0), 1, 1, 1) );
                     iso.add(Anvil(), lgrey);
                     break;
-                case TileEnum.FIREPLACE:
+                case TileEnum.FURNACE:
                     iso.add(Shape.Prism(Point(-i, -z, 0), 1, 1, 1) );
                     iso.add(Shape.Pyramid(Point(-i, -z, 1), 1), orange);
                     break;

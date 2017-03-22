@@ -16,6 +16,6 @@ function init_enums(){
 
         BOULDER : 7,
         ANVIL: 8,
-        FIREPLACE: 9,
+        FURNACE: 9,
     }
 }

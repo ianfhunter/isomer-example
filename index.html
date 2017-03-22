@@ -49,6 +49,7 @@
 <!-- Smithing -->
     <a id="smithTrigger" class="label" href="#animatedModal">DEMO01</a>
     <a id="mineTrigger" class="label" href="#mineModal">DEMO02</a>
+    <a id="furnaceTrigger" class="label" href="#furnaceModal">DEMO02</a>
 
     <div id="mineModal">
 
@@ -66,65 +67,64 @@
             <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(240deg); filter: hue-rotate(240deg);"  />
             <img src="SapphireOre.png" style="-webkit-filter: hue-rotate(100deg); filter: hue-rotate(100deg);" />
 
-             <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;">
-              <tr>
-                <th>Ore</th>
-                <th>Progress</th>
-                <th>Select</th>
-              </tr>
-              <tr>
-                <td>Copper</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-striped active" role="progressbar"
-                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                        0%
-                      </div>
-                    </div>
-                </td> 
-                <td><button onclick=mine(this)>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Tin</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-striped active" role="progressbar"
-                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                        20%
-                      </div>
-                    </div>
-                </td> 
-                <td><button onclick=mine(this)>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Iron</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-striped active" role="progressbar"
-                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                        20%
-                      </div>
-                    </div>
-                </td> 
-                <td><button onclick=mine(this)>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Coal</td>
-                <td>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-striped active" role="progressbar"
-                      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                        20%
-                      </div>
-                    </div>
-                </td> 
-                 <td><button onclick=mine(this)>Go!</button></td>
-              </tr>
+            <table id="oretable" class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;">
             </table> 
         </div>
     </div>
 
+<div id="furnaceModal">
 
+        <div class="close-furnaceModal"> 
+            CLOSE MODAL
+            <button type="button" class="close close-furnaceModal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            
+        <div class="modal-content" style="text-align: center;">
+            <h1 class="modal-title">Furnace</h1>
+            <h4 class="modal-subtitle"><i>Hot molten liquid splutters as if it wants to escape...</i></h4>
+            
+
+            <img src="Furnace_icon.png" class="imageborder" />
+
+            <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;"> <!--  style="width:100%"> -->
+              <tr>
+                <th>Ingredient #1</th>
+                <th>Ingredient #2</th>
+                <th>Ingredient #3</th>
+                <th>Output</th>
+                <th>Smelt</th>
+              </tr>
+              <tr>
+                <td>Copper</td>
+                <td>Tin</td> 
+                <td></td> 
+                <td>Bronze</td> 
+                <td><button disabled>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Pewter</td>
+                <td>Copper</td> 
+                <td>Tin</td> 
+                <td>Tin</td> 
+                <td><button>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Iron</td>
+                <td>Iron Ore</td> 
+                <td></td> 
+                <td></td> 
+                <td><button>Go!</button></td>
+              </tr>
+              <tr>
+                <td>Cupronickel</td>
+                <td>Copper</td> 
+                <td>Nickel</td> 
+                <td></td> 
+                <td><button>Go!</button></td>
+              </tr>
+            </table>
+        </div>
+    </div>
 
     <div id="animatedModal">
 

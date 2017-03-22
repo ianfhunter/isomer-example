@@ -12,7 +12,7 @@ function init_rooms(){
             [new Tile(TileEnum.WALLCORNER),  new Tile(TileEnum.WALLALT), new Portal(TileEnum.DOORALT, 2) ,    new Tile(TileEnum.WALLALT),new Tile(TileEnum.WALLALT), new Tile(TileEnum.WALLALT), new Tile(TileEnum.WALLALT),new Tile(TileEnum.INVISIBLE)],
             [new Tile(TileEnum.WALL),        0,              0,               0,              0,              0,              0,new Tile(TileEnum.INVISIBLE)],
             [new Tile(TileEnum.WALL),        0,              0,               new Tile(TileEnum.PLAYER),    0,              0,             new Tile(TileEnum.BOULDER),new Tile(TileEnum.INVISIBLE)],
-            [new Tile(TileEnum.WALL),        new Tile(TileEnum.FIREPLACE), 0,               0,              0,              0,              new Tile(TileEnum.ANVIL),new Tile(TileEnum.INVISIBLE)],
+            [new Tile(TileEnum.WALL),        new Tile(TileEnum.FURNACE), 0,               0,              0,              0,              new Tile(TileEnum.ANVIL),new Tile(TileEnum.INVISIBLE)],
             [new Portal(TileEnum.DOOR, 1),        0,              0,               0,              0,              0,              new Tile(TileEnum.BOULDER),new Tile(TileEnum.INVISIBLE)],
             [new Tile(TileEnum.WALL),        0,              0,               new Tile(TileEnum.BOULDER),   0,              0,              0,new Tile(TileEnum.INVISIBLE)],
             [new Tile(TileEnum.INVISIBLE),     new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE),new Tile(TileEnum.INVISIBLE)]

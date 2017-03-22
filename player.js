@@ -1,5 +1,15 @@
 var movement_locked = false;
 
+
+function Player(){
+   this.inventory = [];
+}
+Player.prototype.add_item = function(item){
+    this.inventory.push(item)
+};
+
+var player = new Player();
+
 function do_movement(oldX, newX, oldY, newY, grid) {
     if (can_move(newX , newY, grid)){
         grid[oldX ][ oldY] = new Tile(TileEnum.EMPTY);
@@ -58,7 +68,7 @@ function move_player(grid){
 }
 
 function can_move(x,y, grid){
-    console.log(x, y, grid, "can move")
+    // console.log(x, y, grid, "can move")
     if (grid && grid.length > x && grid[x].length > y && grid[x][y].tile == TileEnum.EMPTY){
         return true
     }
@@ -78,6 +88,16 @@ function interact(x,y, grid) {
         case TileEnum.WALLCORNER:
             console.log("Blocked");
             break;
+
+        case TileEnum.FURNACE:
+            console.log("FURNACE")
+            $("#furnaceTrigger").click();
+            $(".close-furnaceModal").click(function(){
+                 movement_locked = false; 
+            });
+            movement_locked = true; 
+            break;
+
         case TileEnum.BOULDER:
             console.log("MINE")
             $("#mineTrigger").click();

@@ -40,6 +40,7 @@ function do_mine(name, progress) {
         }else{
             //Get Item.
             console.log("ITEM!")
+            player.add_item(name)
             new_pc = new_pc - 100;
             $(progress).attr("aria-valuenow",new_pc)
             $(progress).css("width",new_pc+ "%")   // Use Text as the css is returned in px.
@@ -47,5 +48,5 @@ function do_mine(name, progress) {
         }
 
         do_mine(name, progress);
-    }, 1000);
+    }, 1000*$(progress).attr("timeout"));
 }
