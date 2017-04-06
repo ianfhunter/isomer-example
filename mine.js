@@ -17,8 +17,6 @@ function mine(a){
     clearInterval(mining_timeout);
 
     do_mine(name, progress)
-
-
 }
 
 function do_mine(name, progress) {

@@ -6,7 +6,23 @@ function Player(){
 }
 Player.prototype.add_item = function(item){
     this.inventory.push(item)
+    $("#inventory").append("<li>"+item+"</li>")
+
 };
+Player.prototype.remove_item = function(item){
+    this.inventory.pop(item);
+}
+Player.prototype.has_items = function(items){
+    for (var i = items.length - 1; i >= 0; i--) {
+        if ( $.inArray(items[i], this.inventory) == -1){
+          console.log(items[i] + "is not in inventory.")
+          console.log(items[i])
+          return false;  
+      }
+    }
+    console.log("OK")
+    return true;
+}
 
 var player = new Player();
 

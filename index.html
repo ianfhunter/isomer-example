@@ -13,6 +13,8 @@
 <script src="grid.js"></script>
 <script src="tile.js"></script>
 <script src="mine.js"></script>
+<script src="smelt.js"></script>
+<script src="smith.js"></script>
 <script src="player.js"></script>
 <script src="init.js"></script>
 
@@ -37,14 +39,21 @@
 </head>
 
 <body>
-    <audio controls autoplay loop>
+   <!--  <audio controls autoplay loop>
       <source src="beepbox-8.wav" type="audio/wav">
       Your browser does not support the audio element.
-    </audio>
-
-    <img src="data/directions.gif" height=40 style="display: block;" />
+    </audio> -->
+    <img src="data/directions.gif" height=40 style="display: block;" />        
     <canvas width="1600" height="1200" id="art"></canvas>
 
+    <div class="infobar">
+        <h1>
+        Inventory
+        </h1>
+        <ul id="inventory">
+
+        </ul>
+    </div>
 
 <!-- Smithing -->
     <a id="smithTrigger" class="label" href="#animatedModal">DEMO01</a>
@@ -72,7 +81,7 @@
         </div>
     </div>
 
-<div id="furnaceModal">
+    <div id="furnaceModal">
 
         <div class="close-furnaceModal"> 
             CLOSE MODAL
@@ -86,42 +95,7 @@
 
             <img src="Furnace_icon.png" class="imageborder" />
 
-            <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;"> <!--  style="width:100%"> -->
-              <tr>
-                <th>Ingredient #1</th>
-                <th>Ingredient #2</th>
-                <th>Ingredient #3</th>
-                <th>Output</th>
-                <th>Smelt</th>
-              </tr>
-              <tr>
-                <td>Copper</td>
-                <td>Tin</td> 
-                <td></td> 
-                <td>Bronze</td> 
-                <td><button disabled>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Pewter</td>
-                <td>Copper</td> 
-                <td>Tin</td> 
-                <td>Tin</td> 
-                <td><button>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Iron</td>
-                <td>Iron Ore</td> 
-                <td></td> 
-                <td></td> 
-                <td><button>Go!</button></td>
-              </tr>
-              <tr>
-                <td>Cupronickel</td>
-                <td>Copper</td> 
-                <td>Nickel</td> 
-                <td></td> 
-                <td><button>Go!</button></td>
-              </tr>
+            <table id="smelttable" class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;"> <!--  style="width:100%"> -->
             </table>
         </div>
     </div>
@@ -138,11 +112,11 @@
             <h4 class="modal-subtitle"><i>Sparks flitter as the hammer pounds on the steel anvil...</i></h4>
             
 
-            <img src="Icon_steel_bar.png" class="imageborder" />
-            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(180deg); filter: hue-rotate(180deg);" />
-            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(50deg); filter: hue-rotate(50deg);" />
-            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(240deg); filter: hue-rotate(240deg);" />
-            <img src="Icon_blue_bar.png" style="-webkit-filter: hue-rotate(100deg); filter: hue-rotate(100deg);" />
+            <img src="weapons.jpg" />
+
+            Material: <select id="smith_materials" onclick="populate_smith()">
+                        <option>Click to load Materials</option>
+                      </select>
 
             <table class="modal-table table table-hover table-bordered table-responsive" style="text-align: center;margin: auto;"> <!--  style="width:100%"> -->
               <tr>

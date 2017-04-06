@@ -5,8 +5,6 @@ var Point;
 var Path;
 var Debug_Enable = false;
 
-
-
 $(function(){
 
     // Modal Windows
@@ -40,20 +38,24 @@ $(function(){
 });
 
 var Ore = [
-  { "name": "Copper", "Speed": 1 },
-  { "name": "Iron", "Speed": 1 },
-  { "name": "Tin", "Speed": 1 },
-  { "name": "Coal", "Speed": 1 },
-  { "name": "Silver", "Speed": 2 },
+  { "name": "Copper", "Speed": 3 },
+  { "name": "Iron Ore", "Speed": 2 },
+  { "name": "Tin", "Speed": 3 },
+  { "name": "Coal", "Speed": 2 },
+  { "name": "Silver", "Speed": 1 },
 ];
+
+var SmeltTable = [
+    { "name": "Bronze", "Ingredients":["Copper","Tin"]},
+    { "name": "Pewter", "Ingredients":["Copper","Tin","Tin"]},
+    { "name": "Iron", "Ingredients":["Iron Ore"]},
+    { "name": "Cupronickel", "Ingredients":["Copper","Nickel"]},
+]
 
 function init_tables() {
     // TODO: Create Table functions.
-    $("#oretable").append( 
-        "<tr><th>Ore</th>\
-         <th>Progress</th>\
-         <th>Select</th>\
-        </tr>" );
+    tableHeader("#oretable", ["Ore", "Progress", "Select"])
+
 
     for (o in Ore){
         $("#oretable").append(
@@ -70,5 +72,27 @@ function init_tables() {
             <td><button onclick=mine(this)>Go!</button></td> \
           </tr>"
        );
+    }
+    tableHeader("#smelttable", ["Ingredient #1","Ingredient #2","Ingredient #3", "Result", "Smelt"]);
+
+    for (s in SmeltTable){
+        $("#smelttable").append(
+          "<tr> \
+            <td>"+standardize(SmeltTable[s]["Ingredients"][0])+"</td> \
+            <td>"+standardize(SmeltTable[s]["Ingredients"][1])+"</td> \
+            <td>"+standardize(SmeltTable[s]["Ingredients"][2])+"</td> \
+            <td>"+ SmeltTable[s]["name"]+"</td> \
+            <td><button onclick=smelt(this)>Go!</button></td> \
+          </tr>"
+       );
+    }
+
+}
+
+function standardize(input){
+    if (!input){
+        return " "
+    }else{
+        return input;
     }
 }

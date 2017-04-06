@@ -11,3 +11,12 @@ CanvasRenderingContext2D.prototype.clear =
       this.restore();
     }           
 };
+
+function tableHeader(where, arr_of_tags){
+    var str = "<tr>"
+    for( x in arr_of_tags){
+        str += "<th>"+arr_of_tags[x]+"</th>"
+    }
+    str += "</tr>"
+    $(where).append(str); 
+}
